@@ -1,0 +1,19 @@
+<div class="quote-main">
+   <label style="color:white;">Purchase By:</label>
+   {{input type="date" value=purchaseDate class="form-control input-sm"}}
+
+   <br>
+   <label style="color:white;">Recipient:</label>
+   {{input type="textbox" value=recipient class="form-control input-sm"}}
+
+   <br>
+   <label style="color:white;">Item URL:</label>
+   {{input type="textbox" value=url class="form-control input-sm"}}
+
+   <br>
+   <label style="color:white;">Item Info:</label>
+   {{textarea  placeholder="Add new item here" value=itemDetail class="form-control"}}
+   
+   
+   <input type="submit" class="btn btn-default btn=small pull-left" value="Add" {{action 'insertItem'}}>
+</div>

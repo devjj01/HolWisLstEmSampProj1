@@ -1,0 +1,69 @@
+
+     <div class="row">
+        <div class="col-sm-12">
+        <table  style="width:100%; border: 3px solid #3c763d;background: white;" class="table table-striped">
+         <thead style="color:white;background: #3c763d;"> <!-- #d9534f -->
+           <tr>
+             <th>Item #</th>
+             <th>Purchase By</th>
+             <th>Recipient</th>
+             <th>URL</th>
+             <th>Item Info</th>
+             <th colspan="3">Action(s)</th>
+           </tr>
+         </thead>
+         <tbody>
+          {{#each wishitems as |wishitem index|}}
+             <tr>
+               <td>{{index}}</td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     {{input type="date" value=wishitem.purchaseDate class="form-control input-sm"}}                     
+                 {{else}}
+                     {{format-datepicker wishitem.purchaseDate}}
+                 {{/if}}
+               </td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     {{input type="textbox" value=wishitem.recipient class="form-control input-sm"}}                     
+                 {{else}}
+                     {{wishitem.recipient}}
+                 {{/if}}
+               </td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     {{input type="textbox" value=wishitem.url class="form-control input-sm"}}                     
+                 {{else}}
+                     <a target="_blank" href="{{wishitem.url}}">Link</a>
+                 {{/if}}
+               </td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     {{input type="textbox" value=wishitem.itemDetail class="form-control input-sm"}}                     
+                 {{else}}
+                     {{wishitem.itemDetail}}
+                 {{/if}}
+               </td>
+               <td><button class="btn btn-default btn=small pull-left" {{action "deleteItem" wishitem}}>Delete</button></td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     <button class="btn btn-default btn=small pull-left" {{action "updateItem" wishitem}}>Update</button>
+                 {{else}}
+                     <button class="btn btn-default btn=small pull-left" {{action "editItem" wishitem}}>Edit</button>
+                 {{/if}}
+               </td>
+               <td>
+                 {{#if (eq wishitem.id idToEdit) }}
+                     <button class="btn btn-default btn=small pull-left" {{action "cancelItem" wishitem}}>Cancel</button>
+                 {{/if}}
+               </td>
+             </tr>
+          {{/each}}
+         </tbody>
+        </table>
+
+        </div>
+     </div>
+
+     <br>
+     <br>

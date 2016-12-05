@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+         <h4><b><i>Happy Holidays!</i></b></h4>
+         <br>
+         {{list-insert}}
+         <br>
+      </div>
+      <div class="col-sm-4">
+         {{list-details wishitems=model.wishitems}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+         <label style="color:#d9534f;"><u><h4>Current Items</h4></u></label>
+         {{list-summary wishitems=model.wishitems}}
+      </div>
+    </div>    
+  </div>
+</div>
+{{outlet}}
